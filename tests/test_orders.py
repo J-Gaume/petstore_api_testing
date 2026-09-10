@@ -1,5 +1,7 @@
 import unittest
 import requests
+import os
+pet = os.environ["pet"]
 
 class OrderTestCase(unittest.TestCase):
     # test_get_order_by_id

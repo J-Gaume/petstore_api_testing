@@ -1,6 +1,7 @@
 import unittest
 import requests
-
+import os
+pet = os.environ["pet"]
 class PetTestCase(unittest.TestCase):
     # test_create_pet
     # test_get_pet_by_id

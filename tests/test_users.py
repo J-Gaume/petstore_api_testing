@@ -1,4 +1,7 @@
 import unittest
+import requests
+import os
+pet = os.environ["pet"]
 
 class UserTestCase(unittest.TestCase):
     # test_create_user
