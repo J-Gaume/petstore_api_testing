@@ -1,4 +1,5 @@
 import unittest
+import requests
 
 class PetTestCase(unittest.TestCase):
     # test_create_pet

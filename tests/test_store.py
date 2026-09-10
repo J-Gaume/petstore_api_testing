@@ -1,4 +1,5 @@
 import unittest
+import requests
 
 class StoreTestCase(unittest.TestCase):
     # test_get_inventory

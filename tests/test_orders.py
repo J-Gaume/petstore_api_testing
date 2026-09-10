@@ -1,4 +1,5 @@
 import unittest
+import requests
 
 class OrderTestCase(unittest.TestCase):
     # test_get_order_by_id
