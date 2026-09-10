@@ -1,13 +1,18 @@
 import unittest
 import requests
 import os
+import time
 pet = os.environ["pet"]
 class PetTestCase(unittest.TestCase):
     
-    def test_add_new_pet(self):
-        #given 
+    @classmethod
+    def setUpClass(cls):
+        cls.djur_id = int(time.time())
+    
+    def test_add_new_pet(self): 
+        djur_id = self.djur_id
         djur1 = {
-                "id": 100,
+                "id": djur_id,
                 "name": "tester",
                 "category": {"id" :12, "name" : "dogs"},
                 "status": "pending"
@@ -21,9 +26,10 @@ class PetTestCase(unittest.TestCase):
 
     def test_hitta_skapat_djur(self):
         #given vi har ett djur skapat
+        djur_id = self.djur_id
 
         #when vi söker upp djuret
-        animal = requests.get(f"{pet}/pet/100")
+        animal = requests.get(f"{pet}/pet/{djur_id}")
 
         #then 
         self.assertEqual(200, animal.status_code)
@@ -32,8 +38,9 @@ class PetTestCase(unittest.TestCase):
 
     def test_update_pet(self):
         #given pet ska förändras
+        djur_id = self.djur_id
         djur1_ny = {
-                "id": 100,
+                "id": djur_id,
                 "name": "NYTT_NAMN",
                 "category": {"id" : 12, "name" : "dogs"},
                 "status": "available"
