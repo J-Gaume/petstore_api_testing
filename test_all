@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+import unittest
+
+from tests.test_pets import PetTestCase
+from tests.test_store import StoreTestCase
+from tests.test_orders import OrderTestCase
+from tests.test_inventory import InventoryTestCase
+from tests.test_users import UserTestCase
+
+def suite():
+    suite = unittest.TestSuite()
+    suite.addTests(unittest.TestLoader().loadTestsFromTestCase(PetTestCase))
+    suite.addTests(unittest.TestLoader().loadTestsFromTestCase(StoreTestCase))
+    suite.addTests(unittest.TestLoader().loadTestsFromTestCase(OrderTestCase))
+    suite.addTests(unittest.TestLoader().loadTestsFromTestCase(InventoryTestCase))
+    suite.addTests(unittest.TestLoader().loadTestsFromTestCase(UserTestCase))
+    return suite
+
+if __name__ == "__main__":
+    runner = unittest.TextTestRunner(verbosity=2)
+    runner.run(suite())
