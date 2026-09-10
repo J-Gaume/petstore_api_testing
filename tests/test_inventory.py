@@ -2,6 +2,7 @@ import unittest
 import requests
 import os
 pet = os.environ["pet"]
+import time
 
 class InventoryTestCase(unittest.TestCase):
     
@@ -9,7 +10,8 @@ class InventoryTestCase(unittest.TestCase):
     def setUpClass(cls):
         alla_djur = requests.get(f"{pet}/store/inventory")
         cls.baseline_approved = alla_djur.json()["approved"]
-        cls.pet_id = 1000 
+        cls.pet_id = int(time.time())
+
     def test_hitta_djur_med_status(self):
 
         #given det finns flera djur
@@ -23,7 +25,7 @@ class InventoryTestCase(unittest.TestCase):
 
     def test_uppdatera_antal_status(self):
         #given vi vet att det finns 50st
-        InventoryTestCase.pet_id += 1
+        #InventoryTestCase.pet_id += 1
         body = {
                 "id": InventoryTestCase.pet_id,
                 "petId": 100,
