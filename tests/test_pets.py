@@ -9,7 +9,7 @@ class PetTestCase(unittest.TestCase):
     def setUpClass(cls):
         cls.djur_id = int(time.time())
     
-    def test_add_new_pet(self): 
+    def test_CREATE_PET(self): 
         djur_id = self.djur_id
         djur1 = {
                 "id": djur_id,
@@ -24,7 +24,7 @@ class PetTestCase(unittest.TestCase):
         self.assertEqual(200, anropish.status_code)
 
 
-    def test_hitta_skapat_djur(self):
+    def test_FIND_PET(self):
         #given vi har ett djur skapat
         djur_id = self.djur_id
 
@@ -36,7 +36,7 @@ class PetTestCase(unittest.TestCase):
 
 
 
-    def test_update_pet(self):
+    def test_UPDATE_PET(self):
         #given pet ska förändras
         djur_id = self.djur_id
         djur1_ny = {
@@ -50,3 +50,5 @@ class PetTestCase(unittest.TestCase):
         
         #then statuskod 200 för genomförda förändringar
         self.assertEqual(200, djur_uppdateras.status_code)
+
+   # def test_

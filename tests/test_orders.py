@@ -4,7 +4,9 @@ import os
 pet = os.environ["pet"]
 
 class OrderTestCase(unittest.TestCase):
-    # test_get_order_by_id
-    # test_delete_order
-    # test_place_order_invalid_id
-    pass
+    pass    
+ #   def test_see_orders(self):
+    
+  #  pass
+    #given endpoint existerar
+
