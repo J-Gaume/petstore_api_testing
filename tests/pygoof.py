@@ -15,8 +15,8 @@ class jallan(unittest.TestCase):
         #given user has valid data
         konst = self.KONST + 1
         new_user = {
-  "id": 10,
-  "username": "theUser",
+  "id": 11,
+  "userName": "dev",
   "firstName": "John",
   "lastName": "James",
   "email": "john@email.com",
