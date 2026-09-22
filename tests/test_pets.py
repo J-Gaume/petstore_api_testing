@@ -2,7 +2,7 @@ import unittest
 import requests
 import os
 import time
-pet = os.environ["pet"]
+pet = os.environ["pet"]  # 'http://petstore:8080/api/v3'
 class PetTestCase(unittest.TestCase):
     
     @classmethod
@@ -10,6 +10,7 @@ class PetTestCase(unittest.TestCase):
         cls.djur_id = int(time.time())
     
     def test_CREATE_PET(self): 
+        #given
         djur_id = self.djur_id
         djur1 = {
                 "id": djur_id,
