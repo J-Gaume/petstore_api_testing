@@ -32,8 +32,11 @@ class PetTestCase(unittest.TestCase):
         #when vi söker upp djuret
         animal = requests.get(f"{pet}/pet/{djur_id}")
 
-        #then 
+        #then hittas djur och data valideras
         self.assertEqual(200, animal.status_code)
+        data = animal.json() # data blir variabel som samlar response body i .json
+        self.assertEqual("tester", data["name"])
+        self.assertEqual(djur_id, data["id"]) 
 
 
 
@@ -51,5 +54,14 @@ class PetTestCase(unittest.TestCase):
         
         #then statuskod 200 för genomförda förändringar
         self.assertEqual(200, djur_uppdateras.status_code)
+        
+        #verifiera uppdatering med nytt anrop 
+        kontrollera = requests.get(f"{pet}/pet/{djur_id}")
+        self.assertEqual("NYTT_NAMN", kontrollera.json()["name"])
+
 
    # def test_
+
+
+
+
